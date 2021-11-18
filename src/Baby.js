@@ -2,10 +2,6 @@ import React from "react";
 import boyIcon from "./images/boyIcon.png";
 import girlIcon from "./images/girlIcon.png";
 
-const imgStyle = {
-    height: 80
-}
-
 function Baby(props) {
     const { name, sex } = props.data;
     const wrapperStyle = {
