@@ -3,6 +3,7 @@ import babyNamesData from "./babyNamesData.json";
 import Baby from "./Baby";
 import SearchBar from './SearchBar';
 import FavouriteBaby from "./FavouriteBaby";
+import FilterBabies from "./FilterBabies";
 
 const sortBabies = (babies) => {
   // we need to make copy of the array,beacuse it is call by refrence
@@ -49,12 +50,35 @@ function BabyNames() {
     setFavouriteBabies(filtedeFavourites)
   }
 
+  const handleFilterClick = (type) => {
+    switch (type) {
+      case "Girl":
+        const filteredGirls = babyNamesData.filter(baby => {
+          return baby.sex === "f"
+        })
+        setBabyNames(filteredGirls);
+        break;
+      case "Boy":
+        const filteredBoys = babyNamesData.filter(baby => {
+          return baby.sex === "m"
+        })
+        setBabyNames(filteredBoys)
+        break
+      case "All":
+        setBabyNames(sortBabies(babyNamesData))
+        break;
+    }
+  }
+
   return (
     <div className="d-flex flex-column ">
       <div>
-        <div className=" d-flex justify-content-evenly col-3 ">
-          <p className="">Search: </p>
-          <SearchBar onSearch={search} />
+        <div className=" d-flex justify-content-center ">
+          <div className="d-flex">
+            <p >Search: </p>
+            <SearchBar onSearch={search} />
+          </div>
+          <FilterBabies onFilterClick={handleFilterClick} />
         </div>
         <div className="m-3 p-1 d-flex" >
           <p className="">Favourites:</p>

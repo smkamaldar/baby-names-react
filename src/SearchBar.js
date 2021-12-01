@@ -11,7 +11,7 @@ function SearchBar(props) {
     }
     return (
         <div>
-            <input className="border border-3 shadow rounded" className="text" value={searchPhrase}
+            <input className="border border-3 shadow rounded m-2" className="text" value={searchPhrase}
             onChange={handleSearch}></input>
         </div>
     )
