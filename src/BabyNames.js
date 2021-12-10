@@ -56,16 +56,18 @@ function BabyNames() {
         const filteredGirls = babyNamesData.filter(baby => {
           return baby.sex === "f"
         })
-        setBabyNames(filteredGirls);
+        setBabyNames(sortBabies(filteredGirls));
         break;
       case "Boy":
         const filteredBoys = babyNamesData.filter(baby => {
           return baby.sex === "m"
         })
-        setBabyNames(filteredBoys)
+        setBabyNames(sortBabies(filteredBoys))
         break
       case "All":
         setBabyNames(sortBabies(babyNamesData))
+        break;
+        default :
         break;
     }
   }
